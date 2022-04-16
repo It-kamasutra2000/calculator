@@ -1,8 +1,14 @@
 .calculator {
     height: 80vh;
-    width: 400px;
-    background: red;
+    width: 30%;
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
+    overflow: hidden;
+    .test {
+        height: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: baseline;
+    }
 }
