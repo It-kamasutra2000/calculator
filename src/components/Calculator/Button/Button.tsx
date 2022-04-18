@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 interface IButton {
     Icon?: React.Component | any;
     bgrCol?: string;
-    figure?: number;
+    figure?: number | string;
 }
 
 export const Button: FC<IButton> = ({ Icon, figure, bgrCol = '#4B4B4B' }) => {
