@@ -14,7 +14,7 @@ import { Screen } from './Screen/Screen';
 
 export const Calculator: FC = () => {
 
-    const [count, setCount] = useState<string>('10');
+    const [count, setCount] = useState<string>();
 
     return <div className={styles.calculator}>
         <Header />
@@ -23,22 +23,22 @@ export const Calculator: FC = () => {
             <Screen count={count}  />
         </div>
         <div className={styles.buttons}>
-            <Button figure={7} bgrCol={colors.topFiguresColor} />
-            <Button figure={8} bgrCol={colors.topFiguresColor} />
-            <Button figure={9} bgrCol={colors.topFiguresColor} />
-            <Button Icon={Multiple} bgrCol={colors.mathActionColor} />
-            <Button figure={4} bgrCol={colors.figuresColor} />
-            <Button figure={5} bgrCol={colors.figuresColor} />
-            <Button figure={6} bgrCol={colors.figuresColor} />
-            <Button Icon={Divide} bgrCol={colors.mathActionColor} />
-            <Button figure={1} bgrCol={colors.figuresColor} />
-            <Button figure={2} bgrCol={colors.figuresColor} />
-            <Button figure={3} bgrCol={colors.figuresColor} />
-            <Button Icon={Add} bgrCol={colors.mathActionColor} />
-            <Button figure={0} bgrCol={colors.figuresColor} />
-            <Button figure={'.'}/>
-            <Button Icon={Equal} />
-            <Button Icon={Subtract} bgrCol={colors.mathActionColor} />
+            <Button setCount={setCount} figure={7} bgrCol={colors.topFiguresColor} clickAction={'7'} />
+            <Button setCount={setCount} figure={8} bgrCol={colors.topFiguresColor} clickAction={'8'}/>
+            <Button setCount={setCount} figure={9} bgrCol={colors.topFiguresColor} clickAction={'9'}/>
+            <Button setCount={setCount} Icon={Multiple} bgrCol={colors.mathActionColor} clickAction={'*'}/>
+            <Button setCount={setCount} figure={4} bgrCol={colors.figuresColor} clickAction={'4'}/>
+            <Button setCount={setCount} figure={5} bgrCol={colors.figuresColor} clickAction={'5'}/>
+            <Button setCount={setCount} figure={6} bgrCol={colors.figuresColor} clickAction={'6'}/>
+            <Button setCount={setCount} Icon={Divide} bgrCol={colors.mathActionColor} clickAction={'/'}/>
+            <Button setCount={setCount} figure={1} bgrCol={colors.figuresColor} clickAction={'1'}/>
+            <Button setCount={setCount} figure={2} bgrCol={colors.figuresColor} clickAction={'2'}/>
+            <Button setCount={setCount} figure={3} bgrCol={colors.figuresColor} clickAction={'3'}/>
+            <Button setCount={setCount} Icon={Add} bgrCol={colors.mathActionColor} clickAction={'+'}/>
+            <Button setCount={setCount} figure={0} bgrCol={colors.figuresColor} clickAction={'0'}/>
+            <Button setCount={setCount} figure={'.'} clickAction={'.'}/>
+            <Button setCount={setCount} Icon={Equal} clickAction={'='}/>
+            <Button setCount={setCount} Icon={Subtract} bgrCol={colors.mathActionColor} clickAction={'-'}/>
         </div>
     </div>
 }
