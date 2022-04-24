@@ -5,6 +5,7 @@
     text-align: center;
     vertical-align: middle;
     position: relative;
+    z-index: 10;
     .clearIcon {
         font-size: 40px;
         color: white;
@@ -12,5 +13,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
