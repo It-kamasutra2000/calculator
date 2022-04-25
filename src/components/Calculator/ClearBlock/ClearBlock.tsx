@@ -2,11 +2,6 @@ import { FC } from 'react';
 import { getIsEqual } from '../../../utils';
 import styles from './ClearBlock.module.scss';
 
-interface IClearBlock {
-    setCount: (count: string) => void;
-    count: string
-}
-
 export const ClearBlock: FC<IClearBlock> = ({ setCount, count }) => {
 
     const isEqual = getIsEqual(count);

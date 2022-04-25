@@ -1,4 +1,10 @@
 import { FC,  useState } from 'react';
+
+import styles from './Calculator.module.scss';
+
+import { ClearBlock } from './ClearBlock/ClearBlock';
+import { Header } from './Header/Header';
+import { Screen } from './Screen/Screen';
 import { Add } from '../../assets/svg/Add';
 import { Divide } from '../../assets/svg/Divide';
 import { Equal } from '../../assets/svg/Equal';
@@ -6,11 +12,6 @@ import { Multiple } from '../../assets/svg/Multiple';
 import { Subtract } from '../../assets/svg/Subtract';
 import { colors } from '../../utils';
 import { Button } from './Button/Button';
-
-import styles from './Calculator.module.scss';
-import { ClearBlock } from './ClearBlock/ClearBlock';
-import { Header } from './Header/Header';
-import { Screen } from './Screen/Screen';
 
 export const Calculator: FC = () => {
 

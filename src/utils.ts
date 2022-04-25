@@ -9,8 +9,4 @@ export const getIsEqual = (count: string) => {
     return String(count).includes('=');
 } 
 
-export const actionSymbols = ['*', '/', '+', '-', '=', '.'];
-
-// export const getIsAnySymbolInScreen = (text: string) => {
-//    return text.includes(...actionSymbols);
-// }
+export const mathSymbols = ['*', '/', '+', '-', '=', '.'];

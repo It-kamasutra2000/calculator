@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-export const Add: FC<any> = ({ color = 'white', height = 30, width = 30 }) => {
+export const Add: FC<IIcon> = ({ color = 'white', height = 30, width = 30 }) => {
 	return <div>
 		<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 			height={`${height}px`} width={`${width}px`} viewBox="0 0 1280.000000 1208.000000"

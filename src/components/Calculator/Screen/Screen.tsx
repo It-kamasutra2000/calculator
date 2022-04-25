@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { getIsEqual } from '../../../utils';
 import styles from './Screen.module.scss';
 
-export const Screen: FC<any> = ({ count }) => {
+export const Screen: FC<IScreen> = ({ count }) => {
 
     const isEqual = getIsEqual(count);
 

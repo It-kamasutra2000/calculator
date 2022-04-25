@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-export const Divide: FC<any> = ({ color = 'white', height = 30, width = 30 }) => {
+export const Divide: FC<IIcon> = ({ color = 'white', height = 30, width = 30 }) => {
     return <div>
 <svg fill={color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" height={`${height}px`} width={`${width}px`}
 	viewBox="0 0 113.28 113.281"
