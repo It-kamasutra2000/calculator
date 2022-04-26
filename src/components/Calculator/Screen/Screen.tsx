@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { getIsEqual } from '../../../utils';
 import styles from './Screen.module.scss';
 
-export const Screen: FC<IScreen> = ({ count }) => {
+export const Screen: FC<IScreen> = ({ screenText }) => {
 
-    const isEqual = getIsEqual(count);
+    const isEqual = getIsEqual(screenText);
 
     return <div className={styles.screen}>
         <div className={styles.sum}>
-            {count}
-            {isEqual && eval(String(count).split('=')[0])}
+            {screenText}
         </div>
+        <div className={styles.test}>{isEqual && eval(String(screenText).split('=')[0])}</div>
     </div>
 }

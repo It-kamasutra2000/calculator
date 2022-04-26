@@ -5,8 +5,8 @@ export const colors = {
     screenColor: '#1E1E1E',
 };
 
-export const getIsEqual = (count: string) => {
-    return String(count).includes('=');
+export const getIsEqual = (screenText: string) => {
+    return String(screenText).includes('=');
 } 
 
 export const mathSymbols = ['*', '/', '+', '-', '=', '.'];

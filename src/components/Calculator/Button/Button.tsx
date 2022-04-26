@@ -1,25 +1,27 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { mathSymbols, getIsEqual } from '../../../utils';
 import styles from './Button.module.scss';
 
-
-export const Button: FC<IButton> = ({ Icon, figure, setCount, clickAction, bgrCol = '#4B4B4B' }) => {
-    const content = figure === 0 ? 0 : figure ? figure : <Icon />
+export const Button: FC<IButton> = memo(({ params: { Icon = () => <></>, figure, setScreenText, clickAction, bgrCol = '#4B4B4B' } }) => {
+    const buttonContent = figure === 0 ? 0 : figure ? figure : <Icon />
 
     const getConditions = (value: string) => {
-        const isEqual = getIsEqual(value || '');
+        const isEqualSymbol = getIsEqual(value || '');
         const lastLetter = value && value[value.length - 1];
-        const isAnySymbol = mathSymbols.some(o => lastLetter === o);
+        const isAnySymbol = mathSymbols.some(mathSymbol => lastLetter === mathSymbol);
 
-        // if the result is known and we press the equals button:
-        const isResultKnown = clickAction === '=' && isEqual;
+        // when the result is known and we press the equals button:
+        const isResultKnown = clickAction === '=' && isEqualSymbol;
 
-        const isClickedOnPointAndScreenEmpty = content === '.' && !value.length;
-        const isClickedOnPointAndEqualSymbol = content === '.' && isEqual;
+        // when we click in the point button:
+        const isClickedOnPointAndScreenEmpty = buttonContent === '.' && !value.length;
+        const isClickedOnPointAndEqualSymbol = buttonContent === '.' && isEqualSymbol;
         const isClickedOnPoint = isClickedOnPointAndScreenEmpty || isClickedOnPointAndEqualSymbol;
 
-        const isResultKnownAndClickedOnTheFigure = isEqual && figure;
+        // when the sum is defined and when click in the figure:
+        const isResultKnownAndClickedOnTheFigure = isEqualSymbol && figure;
 
+        // not allowing math symbols
         const isLastLetterMathSymbol = isAnySymbol && Icon;
         const isScreenEmptyAndClickedMathSymbol = !value && Icon;
         const isAllowedMathSymbol = isLastLetterMathSymbol || isScreenEmptyAndClickedMathSymbol;
@@ -40,7 +42,7 @@ export const Button: FC<IButton> = ({ Icon, figure, setCount, clickAction, bgrCo
             isResultKnown,
             isClickedOnPoint,
             isResultKnownAndClickedOnTheFigure,
-            isAllowedMathSymbol
+            isAllowedMathSymbol,
         } = getConditions(prevValue);
 
 
@@ -58,7 +60,7 @@ export const Button: FC<IButton> = ({ Icon, figure, setCount, clickAction, bgrCo
     }
 
     const onHandleClick = () => {
-        setCount((prev: string) => {
+        setScreenText((prev: string) => {
 
             const newValue = getNewValue(prev);
             if (newValue !== undefined) return newValue;
@@ -71,7 +73,7 @@ export const Button: FC<IButton> = ({ Icon, figure, setCount, clickAction, bgrCo
 
     return <div className={styles.button} style={{ background: bgrCol }} onClick={onHandleClick}>
         <div className={`${styles.icon} ${figure ? styles.figure : ''}`}>
-            {content}
+            {buttonContent}
         </div>
     </div>
-}
+})

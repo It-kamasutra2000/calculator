@@ -1,4 +1,4 @@
-import { FC,  useState } from 'react';
+import { FC, useState } from 'react';
 
 import styles from './Calculator.module.scss';
 
@@ -15,31 +15,47 @@ import { Button } from './Button/Button';
 
 export const Calculator: FC = () => {
 
-    const [count, setCount] = useState<string>('');
+    const [screenText, setScreenText] = useState<string>('');
+
+    const datas = [
+        { screenText, setScreenText, figure: 7, bgrCol: colors.topFiguresColor, clickAction: '7' },
+        { screenText, setScreenText, figure: 8, bgrCol: colors.topFiguresColor, clickAction: '8' },
+        { screenText, setScreenText, figure: 9, bgrCol: colors.topFiguresColor, clickAction: '9' },
+        { screenText, setScreenText, Icon: Multiple, bgrCol: colors.mathActionColor, clickAction: '*' },
+        { screenText, setScreenText, figure: 4, bgrCol: colors.figuresColor, clickAction: '4' },
+        { screenText, setScreenText, figure: 5, bgrCol: colors.figuresColor, clickAction: '5' },
+        { screenText, setScreenText, figure: 6, bgrCol: colors.figuresColor, clickAction: '6' },
+        { screenText, setScreenText, Icon: Divide, bgrCol: colors.mathActionColor, clickAction: '/' },
+        { screenText, setScreenText, figure: 1, bgrCol: colors.figuresColor, clickAction: '1' },
+        { screenText, setScreenText, figure: 2, bgrCol: colors.figuresColor, clickAction: '2' },
+        { screenText, setScreenText, figure: 3, bgrCol: colors.figuresColor, clickAction: '3' },
+        { screenText, setScreenText, Icon: Add, bgrCol: colors.mathActionColor, clickAction: '+' },
+        { screenText, setScreenText, figure: 0, bgrCol: colors.figuresColor, clickAction: '0' },
+        { screenText, setScreenText, figure: '.', bgrCol: colors.figuresColor, clickAction: '.' },
+        { screenText, setScreenText, Icon: Equal, bgrCol: colors.figuresColor, clickAction: '=' },
+        { screenText, setScreenText, Icon: Subtract, bgrCol: colors.mathActionColor, clickAction: '-' },
+    ]
 
     return <div className={styles.calculator}>
         <Header />
         <div className={styles.screenBlock}>
-            <ClearBlock count={count} setCount={setCount}/>
-            <Screen count={count} />
+            <ClearBlock screenText={screenText} setScreenText={setScreenText} />
+            <Screen screenText={screenText} />
         </div>
         <div className={styles.buttons}>
-            <Button count={count} setCount={setCount} figure={7} bgrCol={colors.topFiguresColor} clickAction={'7'} />
-            <Button count={count} setCount={setCount} figure={8} bgrCol={colors.topFiguresColor} clickAction={'8'} />
-            <Button count={count} setCount={setCount} figure={9} bgrCol={colors.topFiguresColor} clickAction={'9'} />
-            <Button count={count} setCount={setCount} Icon={Multiple} bgrCol={colors.mathActionColor} clickAction={'*'} />
-            <Button count={count} setCount={setCount} figure={4} bgrCol={colors.figuresColor} clickAction={'4'} />
-            <Button count={count} setCount={setCount} figure={5} bgrCol={colors.figuresColor} clickAction={'5'} />
-            <Button count={count} setCount={setCount} figure={6} bgrCol={colors.figuresColor} clickAction={'6'} />
-            <Button count={count} setCount={setCount} Icon={Divide} bgrCol={colors.mathActionColor} clickAction={'/'} />
-            <Button count={count} setCount={setCount} figure={1} bgrCol={colors.figuresColor} clickAction={'1'} />
-            <Button count={count} setCount={setCount} figure={2} bgrCol={colors.figuresColor} clickAction={'2'} />
-            <Button count={count} setCount={setCount} figure={3} bgrCol={colors.figuresColor} clickAction={'3'} />
-            <Button count={count} setCount={setCount} Icon={Add} bgrCol={colors.mathActionColor} clickAction={'+'} />
-            <Button count={count} setCount={setCount} figure={0} bgrCol={colors.figuresColor} clickAction={'0'} />
-            <Button count={count} setCount={setCount} figure={'.'} clickAction={'.'} />
-            <Button count={count} setCount={setCount} Icon={Equal} clickAction={'='} />
-            <Button count={count} setCount={setCount} Icon={Subtract} bgrCol={colors.mathActionColor} clickAction={'-'} />
+            {datas.map(data => {
+                return <Button
+                    key={data.clickAction}
+                    params={{
+                        screenText: data.screenText,
+                        setScreenText: data.setScreenText,
+                        figure: data.figure,
+                        bgrCol: data.bgrCol,
+                        clickAction: data.clickAction,
+                        Icon: data.Icon
+                    }}
+                />
+            })}
         </div>
     </div>
 }

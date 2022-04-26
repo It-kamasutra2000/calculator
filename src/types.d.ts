@@ -1,5 +1,5 @@
 interface IScreen {
-    count: string;
+    screenText: string;
 }
 
 interface IIcon {
@@ -9,16 +9,18 @@ interface IIcon {
 }
 
 interface IClearBlock {
-    setCount: (count: string) => void;
-    count: string
+    setScreenText: (screenText: string) => void;
+    screenText: string;
 }
 
 interface IButton {
-    Icon?: React.Component | any;
-    bgrCol?: string;
-    figure?: number | string;
-    clickAction: string;
-    setCount: any;
-    count?: string;
-    isEqualButton?: boolean;
+    params: {
+        Icon?: React.ComponentType | any;
+        bgrCol?: string;
+        figure?: number | string;
+        clickAction: string;
+        setScreenText: (screenText: (prevValue: string) => string) => void;
+        screenText?: string;
+        isEqualButton?: boolean;
+    }
 }

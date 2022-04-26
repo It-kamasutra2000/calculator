@@ -1,6 +1,6 @@
 .screen {
     background: #1E1E1E;
-    width:  75%;
+    width: 75%;
     position: relative;
     z-index: 1;
     .sum {
@@ -12,5 +12,12 @@
         margin-right: 5px;
         transform: translate(0, -50%);
     }
-
+    .test {
+        position: absolute;
+        font-size: 50px;
+        color: white;
+        bottom: 0;
+        right: 0;
+        margin-right: 5px;
+    }
 }
