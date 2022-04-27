@@ -15,10 +15,10 @@ interface IClearBlock {
 
 interface IButton {
     params: {
-        Icon?: React.ComponentType | any;
+        Icon?: ComponentType;
         bgrCol?: string;
         figure?: number | string;
-        clickAction: string;
+       buttonText: string;
         setScreenText: (screenText: (prevValue: string) => string) => void;
         screenText?: string;
         isEqualButton?: boolean;

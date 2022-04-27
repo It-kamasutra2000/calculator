@@ -1,15 +1,18 @@
 import { FC } from 'react';
-import { getIsEqual } from '../../../utils';
+import { equal, getIsEqual } from '../../../utils';
 import styles from './Screen.module.scss';
 
 export const Screen: FC<IScreen> = ({ screenText }) => {
 
-    const isEqual = getIsEqual(screenText);
+    const isEqualSymbol = getIsEqual(screenText);
+    const screenTextWithoutEqual = String(screenText).split(equal)[0];
 
     return <div className={styles.screen}>
-        <div className={styles.sum}>
+        <div className={styles.screenText}>
             {screenText}
         </div>
-        <div className={styles.test}>{isEqual && eval(String(screenText).split('=')[0])}</div>
+        <div className={styles.sum}>
+            {isEqualSymbol && eval(screenTextWithoutEqual)}
+        </div>
     </div>
 }

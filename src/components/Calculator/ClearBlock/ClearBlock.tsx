@@ -1,23 +1,23 @@
 import { FC } from 'react';
-import { getIsEqual } from '../../../utils';
+import { cleanSymnol, getIsEqual } from '../../../utils';
 import styles from './ClearBlock.module.scss';
 
 export const ClearBlock: FC<IClearBlock> = ({ setScreenText, screenText }) => {
 
-    const isEqual = getIsEqual(screenText);
+    const isEqualSymbol = getIsEqual(screenText);
 
     const onHandleClear = () => {
-        if (isEqual) {
+        if (isEqualSymbol) {
             setScreenText('');
             return;
         }
-        const newscreenText = screenText.slice(0, screenText.length - 1);
-        setScreenText(newscreenText);
+        const newScreenText = screenText.slice(0, screenText.length - 1);
+        setScreenText(newScreenText);
     }
 
     return <div className={styles.clear}>
         <div className={styles.clearIcon} onClick={onHandleClear}>
-            C
+            {cleanSymnol}
         </div>
     </div>
 }
