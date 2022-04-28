@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { mathSymbols, getIsEqual, point, equal, zeroWithPoint } from '../../../utils';
 import styles from './Button.module.scss';
 
-export const Button: FC<IButton> = ({ params: { Icon, figure, setScreenText,buttonText, bgrCol = '#4B4B4B' } }) => {
+export const Button: FC<IButton> = ({ params: { Icon, figure, setScreenText, buttonText, bgrCol = '#4B4B4B' } }) => {
     const buttonContent = figure === 0 ? 0 : figure ? figure : <Icon />;
 
     const getConditions = (value: string) => {
