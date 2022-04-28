@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-export const Multiple: FC<any> = ({color = 'white', height = 20, width = 20}) => {
+export const Multiple: FC<IIcon> = ({color = 'white', height = 20, width = 20}) => {
     return <div>
         <svg fill={color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" height={`${height}px`} width={`${width}px`}
             viewBox="0 0 460.775 460.775">

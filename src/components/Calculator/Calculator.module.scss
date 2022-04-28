@@ -5,12 +5,14 @@
     margin-top: 50px;
     border-radius: 15px;
     overflow: hidden;
+    
     .buttons {
         height: 65%;
         display: flex;
         flex-wrap: wrap;
         justify-content: baseline;
     }
+
     .screenBlock {
         display: flex;
         width: 100%;
