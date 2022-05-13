@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { equal, getIsEqual } from '../../../utils';
-import styles from './Screen.module.scss';
+import styles from './Screen.module.scss'
 
 export const Screen: FC<IScreen> = ({ screenText }) => {
 
